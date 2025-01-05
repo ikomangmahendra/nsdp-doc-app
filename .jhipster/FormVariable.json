@@ -1,0 +1,40 @@
+{
+  "annotations": {
+    "changelogDate": "20250105163427"
+  },
+  "applications": "*",
+  "clientRootFolder": "nsdpDocApp",
+  "databaseType": "mongodb",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "sectionCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "sectionName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "formVariableType",
+      "fieldType": "FormVariableType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACUTE,OUTCOME_ASSESSMENT,NSF_SURVEY"
+    },
+    {
+      "fieldName": "orderIndex",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "microserviceName": "nsdpDocApp",
+  "name": "FormVariable",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

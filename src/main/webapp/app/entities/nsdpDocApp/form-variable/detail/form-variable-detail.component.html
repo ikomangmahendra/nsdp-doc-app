@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (formVariable(); as formVariableRef) {
+      <div>
+        <h2 data-cy="formVariableDetailsHeading"><span>Form Variable</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span>ID</span></dt>
+          <dd>
+            <span>{{ formVariableRef.id }}</span>
+          </dd>
+          <dt><span>Section Code</span></dt>
+          <dd>
+            <span>{{ formVariableRef.sectionCode }}</span>
+          </dd>
+          <dt><span>Section Name</span></dt>
+          <dd>
+            <span>{{ formVariableRef.sectionName }}</span>
+          </dd>
+          <dt><span>Form Variable Type</span></dt>
+          <dd>
+            <span>{{
+              { null: '', ACUTE: 'ACUTE', OUTCOME_ASSESSMENT: 'OUTCOME_ASSESSMENT', NSF_SURVEY: 'NSF_SURVEY' }[
+                formVariableRef.formVariableType ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span>Order Index</span></dt>
+          <dd>
+            <span>{{ formVariableRef.orderIndex }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/nsdpdocapp/form-variable', formVariableRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
