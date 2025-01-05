@@ -1,0 +1,7 @@
+export enum FormVariableType {
+  ACUTE = 'ACUTE',
+
+  OUTCOME_ASSESSMENT = 'OUTCOME_ASSESSMENT',
+
+  NSF_SURVEY = 'NSF_SURVEY',
+}

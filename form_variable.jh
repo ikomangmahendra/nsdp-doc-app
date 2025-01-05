@@ -1,0 +1,16 @@
+enum FormVariableType {
+	ACUTE,
+    OUTCOME_ASSESSMENT,
+    NSF_SURVEY
+}
+
+entity FormVariable {
+	sectionCode String required maxlength(10)
+	sectionName String required maxlength(50)
+    formVariableType FormVariableType required
+  	orderIndex Integer required
+}
+
+dto * with mapstruct
+paginate * with pagination
+service * with serviceClass
