@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20250106040156"
+  },
+  "applications": "*",
+  "clientRootFolder": "nsdpDocApp",
+  "databaseType": "mongodb",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "microserviceName": "nsdpDocApp",
+  "name": "Page",
+  "relationships": [
+    {
+      "otherEntityName": "element",
+      "relationshipName": "elements",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

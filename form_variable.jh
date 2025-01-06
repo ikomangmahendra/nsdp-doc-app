@@ -1,0 +1,21 @@
+
+entity Section {
+	sectionCode String required
+	sectionName String required
+  	orderIndex Integer required
+}
+
+entity Page {
+	name String required
+    title String required
+}
+
+entity Element {
+	type String required
+    name String required
+}
+
+relationship OneToMany {
+	Section{pages} to Page
+    Page{elements} to Element
+}

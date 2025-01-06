@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20250106040155"
+  },
+  "applications": "*",
+  "clientRootFolder": "nsdpDocApp",
+  "databaseType": "mongodb",
+  "fields": [
+    {
+      "fieldName": "sectionCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sectionName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "orderIndex",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "microserviceName": "nsdpDocApp",
+  "name": "Section",
+  "relationships": [
+    {
+      "otherEntityName": "page",
+      "relationshipName": "pages",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

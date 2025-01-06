@@ -1,0 +1,97 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-section-heading" data-cy="SectionCreateUpdateHeading">Create or edit a Section</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let sectionCodeRef = editForm.get('sectionCode')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_sectionCode">Section Code</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sectionCode"
+            id="field_sectionCode"
+            data-cy="sectionCode"
+            formControlName="sectionCode"
+          />
+          @if (sectionCodeRef.invalid && (sectionCodeRef.dirty || sectionCodeRef.touched)) {
+            <div>
+              @if (editForm.get('sectionCode')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let sectionNameRef = editForm.get('sectionName')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_sectionName">Section Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sectionName"
+            id="field_sectionName"
+            data-cy="sectionName"
+            formControlName="sectionName"
+          />
+          @if (sectionNameRef.invalid && (sectionNameRef.dirty || sectionNameRef.touched)) {
+            <div>
+              @if (editForm.get('sectionName')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let orderIndexRef = editForm.get('orderIndex')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_orderIndex">Order Index</label>
+          <input
+            type="number"
+            class="form-control"
+            name="orderIndex"
+            id="field_orderIndex"
+            data-cy="orderIndex"
+            formControlName="orderIndex"
+          />
+          @if (orderIndexRef.invalid && (orderIndexRef.dirty || orderIndexRef.touched)) {
+            <div>
+              @if (editForm.get('orderIndex')?.errors?.required) {
+                <small class="form-text text-danger">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('orderIndex')?.errors?.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
